@@ -1,6 +1,6 @@
 from flask import Flask, request, make_response
+# from back.pirateup.users.models import User
 from back.pirateup.users.models import User
-
 # random_string
 import string
 from random import *
