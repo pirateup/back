@@ -9,7 +9,10 @@ class Config(object):
     CSRF_ENABLED = False
     SECRET_KEY = 'very-very-secret'
     SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
-
+    MAILER_SMTP = os.environ['MAILER_SMTP']
+    MAIL_SECRET_KEY = os.environ['MAIL_SECRET_KEY']
+    MAILER_PORT = 587
+<
 
 class ProductionConfig(Config):
     DEBUG = False
