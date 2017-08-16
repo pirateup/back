@@ -2,6 +2,7 @@ from pirateup.data import db, CRUDMixin
 from geoalchemy2 import Geography
 
 class Store(db.Model, CRUDMixin):
+    __tablename__ = 'store'
 
     name = db.Column(db.String())
     city = db.Column(db.String())

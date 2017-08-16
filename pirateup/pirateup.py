@@ -1,4 +1,5 @@
 from flask import Flask
+from pirateup.store.models import Store
 import os
 
 app = Flask(__name__)

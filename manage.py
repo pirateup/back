@@ -1,9 +1,9 @@
 import os
-from flask.ext.script import Manager
-from flask.ext.migrate import Migrate, MigrateCommand
+from flask_script import Manager
+from flask_migrate import Migrate, MigrateCommand
 
-from pirateup import app
-from data import db
+from pirateup.pirateup import app
+from pirateup.data import db
 
 app.config.from_object(os.environ['APP_SETTINGS'])
 
