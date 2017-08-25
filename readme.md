@@ -2,7 +2,7 @@
 
 ## Database
 
-Database uses postgis, a postgres extension to manipulate gis data. To upgrade the database write: `python manage.py db update`
+Database uses postgis, a postgres extension to manipulate gis data. To upgrade the database write: `python manage.py db upgrade`
 
 ## Environment variables
 
