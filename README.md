@@ -1,4 +1,5 @@
 # Pirateup backend
+[![Dependency Status](https://gemnasium.com/badges/github.com/pirateup/back.svg)](https://gemnasium.com/github.com/pirateup/back)
 
 ## Database
 
