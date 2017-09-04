@@ -3,6 +3,7 @@ from pirateup.data import query_to_list
 from flask import Flask, request, jsonify, Blueprint
 from flask import current_app as app
 from geoalchemy2 import functions as geofunc
+import geopy
 
 store = Blueprint("store", __name__)
 
@@ -14,6 +15,11 @@ def stores():
     result = {}
     if request.method == 'POST':
         #ADD NEW STORE
+        city = data.get("city")
+        street = data.get("street")
+        geolocator = geopy.Nominatim() # OpenStreetMaps client
+        location = geolocator.geocode("{}, {}".format(street, city))
+        data.update({"location": "POINT({} {})".format(location.latitude, location.longitude)})
         store = Store.create(**data)
         return '', 204
     elif request.method == 'GET':
