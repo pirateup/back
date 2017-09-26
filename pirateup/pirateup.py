@@ -1,10 +1,12 @@
 from flask import Flask, request, jsonify
 from .data import db
 from .store.controllers import store
+from flask_json import FlaskJSON
 import os
 import requests
 
 app = Flask(__name__)
+json = FlaskJSON(app)
 app.config.from_object(os.environ['APP_SETTINGS'])
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
