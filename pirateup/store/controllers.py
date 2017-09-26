@@ -10,7 +10,6 @@ store = Blueprint("store", __name__)
 
 
 def new_store(data):
-    #ADD NEW STORE
     city = data.get("city")
     street = data.get("street")
     geolocator = geopy.Nominatim() # OpenStreetMaps client
@@ -50,10 +49,12 @@ def stores():
             search_tag = request.args.getlist('tag')
             return query_store_by_tag(search_tag)
         return json_response(status=400) 
+    return json_response(status=400) 
 
 
 @store.route('/nearby/<point>', methods=['GET'])
 @store.route('/nearby/<point>/<int:distance>', methods=['GET'])
+@as_json
 def nearby(point, distance=5000):
     """e.g. /nearby/point(54.3733221 18.6257988) 
     or with distance /nearby/point(54.3733221 18.6257988)/3000"""
