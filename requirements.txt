@@ -5,3 +5,5 @@ Flask-Script==2.0.5
 GeoAlchemy2==0.4.0
 psycopg2==2.7.3
 requests==2.18.4
+geopy==1.11.0
+Flask-JSON==0.3.2
