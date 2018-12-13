@@ -1,11 +1,20 @@
-from flask import Flask, request, make_response
-# from back.pirateup.users.models import User
+from flask import Flask, request, make_response, jsonify
+from .data import db
+from .store.controllers import store
 from back.pirateup.users.models import User
-# random_string
+from flask_json import FlaskJSON
+import os
+import requests
 import string
 from random import *
 
 app = Flask(__name__)
+json = FlaskJSON(app)
+app.config.from_object(os.environ['APP_SETTINGS'])
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db.init_app(app)
+app.register_blueprint(store)
 
 @app.route('/')
 def hello_world():
